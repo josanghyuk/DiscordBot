@@ -73,6 +73,8 @@ public class DiscordController {
     @RequestMapping(value = "/setStatus/offline.ajax", method = RequestMethod.POST)
     public Map<String, Object> setOffline(Model model ,DiscordBotVO dbVO) throws LoginException {
         jda.getPresence().setStatus(OnlineStatus.OFFLINE);
+        jda.shutdownNow(); // JDA 인스턴스를 즉시 종료하고 모든 연결을 닫습니다.
+        jda.removeEventListener(new MsgEvent());
         String botNm = String.valueOf(jda.getSelfUser());
         String status = String.valueOf(jda.getPresence().getStatus());
         Map<String,Object>  j  = new HashMap<String, Object>();
@@ -80,6 +82,7 @@ public class DiscordController {
         j.put("botNm",botNm);
         dbVO.setBotNm(botNm);
         dbVO.setStatus(status);
+
         System.out.println("J MAP  "+ j);
         System.out.println("상태 1 :"+status);
         System.out.println("상태 2 :"+botNm);
