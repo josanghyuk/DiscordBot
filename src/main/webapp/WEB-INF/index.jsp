@@ -17,7 +17,6 @@
 </head>
 <body>
 <div class="bodyDiv">
-    <a hr></a>
     <h3> DISCORD BOT : <span id="botNm">${botNm}</span> </h3>
     <h3> STATUS      : <span id="botStatus">${status}</span>  </h3>
     <h3> 활성버튼      : <button onclick="botStatus('online')">활성화</button>  </h3>

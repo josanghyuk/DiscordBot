@@ -26,7 +26,6 @@ public class DiscordController {
     @Autowired
     public DiscordController() throws LoginException {
         jda.getPresence().setStatus(OnlineStatus.OFFLINE);
-        System.out.println("home1   ");
 
     }
     /**
