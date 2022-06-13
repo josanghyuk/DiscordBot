@@ -21,7 +21,7 @@
     <h3> STATUS      : <span id="botStatus">${status}</span>  </h3>
     <h3> 활성버튼      : <button onclick="botStatus('online')">활성화</button>  </h3>
     <h3> 비활성 버튼   : <button onclick="botStatus('offline')">비활성화</button>  </h3>
-    <h3> 이벤트 목록   : <button onclick="eventList()">목록</button>  </h3>
+   <%-- <h3> 이벤트 목록   : <button onclick="eventList()">목록</button>  </h3>--%>
     <textarea onkeypress="" id ="botResult" size="2000" style="width: 636px; height: 269px;" name="bot"></textarea>
 </div>
 </body>
@@ -53,25 +53,25 @@
         });
 
     }
-    function eventList (){
-        $.ajax({
-            url: "/discord/eventList.ajax",
-            type: "post",
-            contentType: "application/json;charset=utf-8;",
-            data: JSON.stringify({}),
-            dataType: "json",
-            success: function (data) {
-                console.log("sueccess");
-                console.log("data :"+data);
-                console.log("data :"+JSON.stringify(data));
-                $("#botResult").text(data.msg);
-            },
-            error: function (request, status, error) {
-
-                console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-            }
-        });
-    }
+    // function eventList (){
+    //     $.ajax({
+    //         url: "/discord/eventList.ajax",
+    //         type: "post",
+    //         contentType: "application/json;charset=utf-8;",
+    //         data: JSON.stringify({}),
+    //         dataType: "json",
+    //         success: function (data) {
+    //             console.log("sueccess");
+    //             console.log("data :"+data);
+    //             console.log("data :"+JSON.stringify(data));
+    //             $("#botResult").text(data.msg);
+    //         },
+    //         error: function (request, status, error) {
+    //
+    //             console.log("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+    //         }
+    //     });
+    // }
 
 </script>
 

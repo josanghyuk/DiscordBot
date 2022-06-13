@@ -26,9 +26,12 @@ public class MsgEvent extends ListenerAdapter {
         if(msg.getContentRaw().charAt(0) == '^'){
             String[] args = msg.getContentRaw().substring(1).split(" ");
             if(args.length <= 0) return;
-            if (args[0].equalsIgnoreCase("test")) {
-                event.getChannel().sendMessage("test").queue();
+            if (args[0].equalsIgnoreCase("롤전적")) {
+                if(args.length < 2) return;
+                event.getChannel().sendMessage("TEST VALUE " + args[1]).queue();
+                if(args[1].equalsIgnoreCase("LOL")){
 
+                }
             } else if (args[0].equalsIgnoreCase("ㅎㅇ")) {
                 event.getChannel().sendMessage("ㅎㅇㅋㅋ " + user.getAsMention()).queue();
             } else if (args[0].equalsIgnoreCase("help")) {
@@ -37,7 +40,7 @@ public class MsgEvent extends ListenerAdapter {
             } else if (args[0].equalsIgnoreCase("패치노트")) {
 
                 event.getChannel().sendMessage("ㅤ").setEmbeds(CommandEmbed.patchEb().build()).queue();
-                System.out.println("args.length"+args.length);
+
                 if(args.length < 2) return;
                 if(args[1].equalsIgnoreCase("LOL")){
                     RSSReader.start("https://createfeed.fivefilters.org/extract.php?url=https%3A%2F%2Fwww.leagueoflegends.com%2Fko-kr%2Fnews%2Ftags%2Fpatch-notes%2F&item=li%5Bclass%5E%3D%22style__Item%22%5D&item_title=h2&item_desc=div%5Bclass%5E%3D%22style__Category%22%5D&item_date=time+%40datetime&item_image=img+%40src&unique_url=1&max=5&order=document&guid=0","LOL");
